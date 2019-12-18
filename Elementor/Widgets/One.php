@@ -14,7 +14,6 @@ use \Elementor\Group_Control_Box_Shadow;
 use \Elementor\Group_Control_Typography;
 use \Elementor\Group_Control_Background;
 use \Elementor\Scheme_Typography;
-use Elementor\Scheme_Color;
 use Elementor\Icons_Manager;
 
 class One extends Widget_Base {
@@ -28,7 +27,7 @@ class One extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eicon-menu-bar';
+        return 'eicon-flip-box';
     }
 
     public function get_categories() {
@@ -296,6 +295,19 @@ class One extends Widget_Base {
             'types' => ['none', 'classic', 'gradient', 'video'],
             'selector' => '{{WRAPPER}} .oxi-addons-flip-box-style-1 .oxi-addons-flip-box-front-style-1',
                 ]
+        );
+        $this->add_control(
+            'section_flip_front_background_overlay',
+            [
+                'label' => esc_html__('Overlay Color', SA_EL_ADDONS_TEXTDOMAIN),
+                'type' => Controls_Manager::COLOR,
+                'condition' => [
+                    'section_flip_front_background_background' => ['classic', 'gradient', 'video'],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .oxi-addons-flip-box-style-1 .oxi-addons-flip-box-front-style-1::before' => 'background: {{VALUE}};',
+                ],
+            ]
         );
         $this->add_group_control(
                 Group_Control_Border::get_type(),
@@ -650,6 +662,19 @@ class One extends Widget_Base {
             'selector' => '{{WRAPPER}} .oxi-addons-flip-box-style-1 .oxi-addons-flip-box-back-style-1',
                 ]
         );
+        $this->add_control(
+            'section_flip_backend_background_overlay',
+            [
+                'label' => esc_html__('Overlay Color', SA_EL_ADDONS_TEXTDOMAIN),
+                'type' => Controls_Manager::COLOR,
+                'condition' => [
+                    'section_flip_backend_background_background' => ['classic', 'gradient', 'video'],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .oxi-addons-flip-box-style-1 .oxi-addons-flip-box-back-style-1::before' => 'background: {{VALUE}};',
+                ],
+            ]
+        );
         $this->add_group_control(
                 Group_Control_Border::get_type(),
                 [
@@ -756,7 +781,7 @@ class One extends Widget_Base {
                 Group_Control_Typography::get_type(),
                 [
                     'name' => 'section_flip_desc_heading',
-                    'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+                    'scheme' => Scheme_Typography::TYPOGRAPHY_3,
                     'selector' => '{{WRAPPER}} .oxi-addons-flip-box-style-1 .oxi-addons-flip-box-back-file .oxi-addons-flip-box-back-info',
                 ]
         );
@@ -838,7 +863,7 @@ class One extends Widget_Base {
                 Group_Control_Typography::get_type(),
                 [
                     'name' => 'section_flip_button_typo',
-                    'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+                    'scheme' => Scheme_Typography::TYPOGRAPHY_3,
                     'selector' => '{{WRAPPER}} .oxi-addons-flip-box-style-1 .oxi-addons-flip-box-back-button .oxi-addons-flip-box-back-button-data',
                 ]
         );
@@ -1055,7 +1080,7 @@ class One extends Widget_Base {
                 ],
             ],
             'default' => '1',
-            'description' => 'Are you in need of a feature that’s not available in our plugin or got some bugs? Feel free to do a <a href="https://wordpress.org/support/plugin/sb-image-hover-effects/" target="_blank">Support</a> request.'
+            'description' => 'Are you in need of a feature that’s not available in our plugin or got some bugs? Feel free to do a <a href="https://wordpress.org/support/plugin/image-hover-effects-ultimate-visual-composer/" target="_blank">Support</a> request.'
                 ]
         );
         $this->end_controls_section();
