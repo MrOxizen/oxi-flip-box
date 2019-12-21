@@ -28,7 +28,7 @@ class Twentyfour extends Widget_Base {
     }
 
     public function get_icon() {
-        return 'eicon-menu-bar';
+        return 'eicon-flip-box';
     }
 
     public function get_categories() {
