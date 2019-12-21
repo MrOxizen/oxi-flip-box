@@ -349,7 +349,7 @@ class Six extends Widget_Base
                 'range' => [
                     'px' => [
                         'min' => 1,
-                        'max' => 2000,
+                        'max' => 200,
                         'step' => 1,
                     ],
                     '%' => [

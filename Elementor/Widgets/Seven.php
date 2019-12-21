@@ -331,7 +331,7 @@ class Seven extends Widget_Base
                 'range' => [
                     'px' => [
                         'min' => 1,
-                        'max' => 2000,
+                        'max' => 200,
                         'step' => 1,
                     ],
                     '%' => [
@@ -483,7 +483,7 @@ class Seven extends Widget_Base
                 'range' => [
                     'px' => [
                         'min' => 1,
-                        'max' => 2000,
+                        'max' => 200,
                         'step' => 1,
                     ],
                     '%' => [
@@ -712,7 +712,7 @@ class Seven extends Widget_Base
                 'range' => [
                     'px' => [
                         'min' => 1,
-                        'max' => 2000,
+                        'max' => 200,
                         'step' => 1,
                     ],
                     '%' => [
@@ -1107,7 +1107,7 @@ class Seven extends Widget_Base
         wp_enqueue_style('oxilab-flip-boxes', OXI_FLIP_BOX_UPLOAD_URL . '/Elementor/assets/css/flip-boxes.css', false, OXI_FLIP_BOX_PLUGIN_VERSION);
         wp_enqueue_style('oxilab-flip-box-seven', OXI_FLIP_BOX_UPLOAD_URL . '/Elementor/assets/css/seven.css', false, OXI_FLIP_BOX_PLUGIN_VERSION);
         $settings = $this->get_settings();
-        $icon = $front_hadding = $front_info = $back_hadding = $backinfo = $button = $bt = $bc = '';
+        $icon = $front_hadding = $front_info = $backinfo = $button = $bt = $bc = '';
 
         if (isset($settings['oxi_flip_frontend_icon']['value'])) {
             $icon = '<div class="oxi-addons-flip-box-front-icon">

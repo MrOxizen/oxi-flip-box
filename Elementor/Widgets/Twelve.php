@@ -886,7 +886,7 @@ class Twelve extends Widget_Base
         $this->add_responsive_control(
             'section_flip_back_head_border_height',
             [
-                'label' => esc_html__('Width Height', OXI_FLIP_BOX_TEXTDOMAIN),
+                'label' => esc_html__('Height', OXI_FLIP_BOX_TEXTDOMAIN),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', '%', 'em'],
                 'range' => [

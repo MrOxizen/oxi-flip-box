@@ -12,20 +12,22 @@ use \Elementor\Controls_Manager as Controls_Manager;
 use \Elementor\Widget_Base as Widget_Base;
 use \Elementor\Group_Control_Border;
 use \Elementor\Group_Control_Box_Shadow;
+use \Elementor\Group_Control_Typography;
 use \Elementor\Group_Control_Background;
+use \Elementor\Scheme_Typography;
 use Elementor\Icons_Manager;
 
-class Eight extends Widget_Base
+class Sixteen extends Widget_Base
 {
 
     public function get_name()
     {
-        return 'oxilab-flip-box-eight';
+        return 'oxilab-flip-box-sixteen';
     }
 
     public function get_title()
     {
-        return esc_html__('Layouts Eight', OXI_FLIP_BOX_TEXTDOMAIN);
+        return esc_html__('Layouts Sixteen', OXI_FLIP_BOX_TEXTDOMAIN);
     }
 
     public function get_icon()
@@ -46,14 +48,21 @@ class Eight extends Widget_Base
                 'label' => esc_html__('Frontend Section', OXI_FLIP_BOX_TEXTDOMAIN),
             ]
         );
-
+        $this->add_control(
+            'oxi_flip_frontend_title',
+            [
+                'label' => esc_html__('Title', OXI_FLIP_BOX_TEXTDOMAIN),
+                'type' => Controls_Manager::TEXT,
+                'default' => 'BOLD FLIPBOX',
+            ]
+        );
         $this->add_control(
             'oxi_flip_frontend_icon',
             [
                 'label' => esc_html__('Icon', OXI_FLIP_BOX_TEXTDOMAIN),
                 'type' => Controls_Manager::ICONS,
                 'default' => [
-                    'value' => 'fas fa-balance-scale',
+                    'value' => 'fab fa-facebook-f',
                     'library' => 'fa-solid',
                 ],
             ]
@@ -66,15 +75,13 @@ class Eight extends Widget_Base
                 'label' => esc_html__('Backend Section', OXI_FLIP_BOX_TEXTDOMAIN),
             ]
         );
+
         $this->add_control(
-            'oxi_flip_backend_icon',
+            'oxi_flip_backend_info',
             [
-                'label' => esc_html__('Icon', OXI_FLIP_BOX_TEXTDOMAIN),
-                'type' => Controls_Manager::ICONS,
-                'default' => [
-                    'value' => 'fas fa-balance-scale',
-                    'library' => 'fa-solid',
-                ],
+                'label' => esc_html__('Info', OXI_FLIP_BOX_TEXTDOMAIN),
+                'type' => Controls_Manager::TEXTAREA,
+                'default' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.',
             ]
         );
 
@@ -134,12 +141,10 @@ class Eight extends Widget_Base
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .oxi-addons-flip-box-style-8 *' => 'transition-duration: {{SIZE}}s; -moz-transition-duration: {{SIZE}}s; -webkit-transition-duration: {{SIZE}}s;',
+                    '{{WRAPPER}} .oxi-addons-flip-box-style-16 *' => 'transition-duration: {{SIZE}}s; -moz-transition-duration: {{SIZE}}s; -webkit-transition-duration: {{SIZE}}s;',
                 ],
             ]
         );
-
-
         $this->end_controls_section();
 
         $this->start_controls_section(
@@ -174,12 +179,8 @@ class Eight extends Widget_Base
                         'step' => 1,
                     ]
                 ],
-                'default' => [
-                    'size' => 200,
-                    'unit' => 'px',
-                ],
                 'selectors' => [
-                    '{{WRAPPER}} .oxi-addons-flip-box-style-8' => 'max-width:{{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .oxi-addons-flip-box-style-16' => 'max-width:{{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -207,7 +208,7 @@ class Eight extends Widget_Base
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .oxi-addons-flip-box-style-8 .oxi-addons-flip-boxes-body:after' => 'padding-bottom:{{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .oxi-addons-flip-box-style-16 .oxi-addons-flip-boxes-body:after' => 'padding-bottom:{{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -236,8 +237,8 @@ class Eight extends Widget_Base
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .oxi-addons-flip-box-style-8 .oxi-addons-flip-box-front-section' => 'border-radius:{{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                    '{{WRAPPER}} .oxi-addons-flip-box-style-8 .oxi-addons-flip-box-back-section' => 'border-radius:{{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .oxi-addons-flip-box-style-16 .oxi-addons-flip-box-front-section' => 'border-radius:{{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .oxi-addons-flip-box-style-16 .oxi-addons-flip-box-back-section' => 'border-radius:{{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -265,7 +266,7 @@ class Eight extends Widget_Base
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .oxi-addons-flip-box-style-8' => 'padding:{{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .oxi-addons-flip-box-style-16' => 'padding:{{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -286,7 +287,7 @@ class Eight extends Widget_Base
                 'name' => 'section_flip_front_background',
                 'label' => __('Background', OXI_FLIP_BOX_TEXTDOMAIN),
                 'types' => ['none', 'classic', 'gradient', 'video'],
-                'selector' => '{{WRAPPER}} .oxi-addons-flip-box-style-8 .oxi-addons-flip-box-front-section',
+                'selector' => '{{WRAPPER}} .oxi-addons-flip-box-style-16 .oxi-addons-flip-box-front-section',
             ]
         );
 
@@ -294,14 +295,14 @@ class Eight extends Widget_Base
             Group_Control_Border::get_type(),
             [
                 'name' => 'flip_boxes_flip_border',
-                'selector' => '{{WRAPPER}} .oxi-addons-flip-box-style-8 .oxi-addons-flip-box-front-section',
+                'selector' => '{{WRAPPER}} .oxi-addons-flip-box-style-16 .oxi-addons-flip-box-front-section',
             ]
         );
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'flip_boxes_flip_border_shadow',
-                'selector' => '{{WRAPPER}} .oxi-addons-flip-box-style-8 .oxi-addons-flip-box-front-section',
+                'selector' => '{{WRAPPER}} .oxi-addons-flip-box-style-16 .oxi-addons-flip-box-front-section',
             ]
         );
         $this->add_responsive_control(
@@ -328,11 +329,10 @@ class Eight extends Widget_Base
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .oxi-addons-flip-box-style-8 .oxi-addons-flip-box-front-section' => 'padding:{{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .oxi-addons-flip-box-style-16 .oxi-addons-flip-box-front-section' => 'padding:{{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
-
         $this->end_controls_section();
 
         $this->start_controls_section(
@@ -344,30 +344,30 @@ class Eight extends Widget_Base
         );
 
         $this->add_responsive_control(
-            'sa_flip_boxes_flip_icon_width_height',
+            'sa_flip_boxes_flip_icon_height',
             [
-                'label' => esc_html__('Width Height', OXI_FLIP_BOX_TEXTDOMAIN),
+                'label' => esc_html__('Height', OXI_FLIP_BOX_TEXTDOMAIN),
                 'type' => Controls_Manager::SLIDER,
                 'size_units' => ['px', '%', 'em'],
                 'range' => [
                     'px' => [
                         'min' => 1,
-                        'max' => 300,
+                        'max' => 500,
                         'step' => 1,
                     ],
                     '%' => [
                         'min' => 1,
-                        'max' => 50,
+                        'max' => 95,
                         'step' => 1,
                     ],
                     'em' => [
                         'min' => 1,
-                        'max' => 10,
+                        'max' => 50,
                         'step' => 1,
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .oxi-addons-flip-box-style-8 .oxi-addons-flip-box-front-icon i' => 'width:{{SIZE}}{{UNIT}}; height:{{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .oxi-addons-flip-box-style-16 .oxi-addons-flip-box-front-icon' => 'height:{{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -395,7 +395,7 @@ class Eight extends Widget_Base
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .oxi-addons-flip-box-style-8 .oxi-addons-flip-box-front-icon i' => 'font-size:{{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .oxi-addons-flip-box-style-16 .oxi-addons-flip-box-front-icon i' => 'font-size:{{SIZE}}{{UNIT}};',
                 ],
             ]
         );
@@ -406,7 +406,7 @@ class Eight extends Widget_Base
                 'type' => Controls_Manager::COLOR,
                 'default' => '#fff',
                 'selectors' => [
-                    '{{WRAPPER}} .oxi-addons-flip-box-style-8 .oxi-addons-flip-box-front-icon i' => 'color: {{VALUE}};'
+                    '{{WRAPPER}} .oxi-addons-flip-box-style-16 .oxi-addons-flip-box-front-icon i' => 'color: {{VALUE}};'
                 ],
             ]
         );
@@ -417,14 +417,14 @@ class Eight extends Widget_Base
                 'name' => 'section_flip_front_icon_background',
                 'label' => __('Background', OXI_FLIP_BOX_TEXTDOMAIN),
                 'types' => ['none', 'classic', 'gradient', 'video'],
-                'selector' => '{{WRAPPER}} .oxi-addons-flip-box-style-8 .oxi-addons-flip-box-front-icon i',
+                'selector' => '{{WRAPPER}} .oxi-addons-flip-box-style-16 .oxi-addons-flip-box-front-icon',
             ]
         );
         $this->add_group_control(
             Group_Control_Border::get_type(),
             [
                 'name' => 'flip_boxes_flip_icon_border',
-                'selector' => '{{WRAPPER}} .oxi-addons-flip-box-style-8 .oxi-addons-flip-box-front-icon i',
+                'selector' => '{{WRAPPER}} .oxi-addons-flip-box-style-16 .oxi-addons-flip-box-front-icon',
             ]
         );
 
@@ -452,12 +452,77 @@ class Eight extends Widget_Base
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .oxi-addons-flip-box-style-8 .oxi-addons-flip-box-front-icon i' => 'border-radius:{{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .oxi-addons-flip-box-style-16 .oxi-addons-flip-box-front-icon' => 'border-radius:{{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    
                 ],
             ]
         );
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'flip_boxes_flip_front_icon_shadow',
+                'selector' => '{{WRAPPER}} .oxi-addons-flip-box-style-16 .oxi-addons-flip-box-front-icon',
+            ]
+        );
+       
+        $this->end_controls_section();
+
+        $this->start_controls_section(
+            'section_flip_front_heading_style',
+            [
+                'label' => esc_html__('Front Heading Style', OXI_FLIP_BOX_TEXTDOMAIN),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
         $this->add_responsive_control(
-            'flip_boxes_flip_front_icon_padding',
+            'section_flip_front_heading_alignment',
+            [
+                'label' => esc_html__('Title Alignment', OXI_FLIP_BOX_TEXTDOMAIN),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    'left' => [
+                        'title' => esc_html__('Left', OXI_FLIP_BOX_TEXTDOMAIN),
+                        'icon' => 'fa fa-align-left',
+                    ],
+                    'center' => [
+                        'title' => esc_html__('Center', OXI_FLIP_BOX_TEXTDOMAIN),
+                        'icon' => 'fa fa-align-center',
+                    ],
+                    'right' => [
+                        'title' => esc_html__('Right', OXI_FLIP_BOX_TEXTDOMAIN),
+                        'icon' => 'fa fa-align-right',
+                    ],
+                ],
+                'default' => 'center',
+                'selectors' => [
+                    '{{WRAPPER}} .oxi-addons-flip-box-style-16 .oxi-addons-flip-box-front-headding' => 'text-align: {{VALUE}};',
+                ],
+            ]
+        );
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'section_flip_front_heading',
+                'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+                'selector' => '{{WRAPPER}} .oxi-addons-flip-box-style-16 .oxi-addons-flip-box-front-headding',
+            ]
+        );
+
+
+        $this->add_control(
+            'section_flip_front_title_color',
+            [
+                'label' => esc_html__('Color', OXI_FLIP_BOX_TEXTDOMAIN),
+                'type' => Controls_Manager::COLOR,
+                'default' => '#ff1844',
+                'selectors' => [
+                    '{{WRAPPER}} .oxi-addons-flip-box-style-16 .oxi-addons-flip-box-front-headding' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'flip_boxes_flip_heading_padding',
             [
                 'label' => esc_html__('Padding', OXI_FLIP_BOX_TEXTDOMAIN),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -465,7 +530,7 @@ class Eight extends Widget_Base
                 'range' => [
                     'px' => [
                         'min' => 1,
-                        'max' => 200,
+                        'max' => 100,
                         'step' => 1,
                     ],
                     '%' => [
@@ -480,12 +545,11 @@ class Eight extends Widget_Base
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .oxi-addons-flip-box-style-8 .oxi-addons-flip-box-front-icon' => 'padding:{{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .oxi-addons-flip-box-style-16 .oxi-addons-flip-box-front-headding' => 'padding:{{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
         $this->end_controls_section();
-
 
         $this->start_controls_section(
             'section_flip_backend_style',
@@ -500,7 +564,7 @@ class Eight extends Widget_Base
                 'name' => 'section_flip_backend_background',
                 'label' => __('Background', OXI_FLIP_BOX_TEXTDOMAIN),
                 'types' => ['none', 'classic', 'gradient', 'video'],
-                'selector' => '{{WRAPPER}} .oxi-addons-flip-box-style-8 .oxi-addons-flip-box-back-section',
+                'selector' => '{{WRAPPER}} .oxi-addons-flip-box-style-16 .oxi-addons-flip-box-back-section',
             ]
         );
 
@@ -508,14 +572,14 @@ class Eight extends Widget_Base
             Group_Control_Border::get_type(),
             [
                 'name' => 'flip_boxes_flip_backend_border',
-                'selector' => '{{WRAPPER}} .oxi-addons-flip-box-style-8 .oxi-addons-flip-box-back-section',
+                'selector' => '{{WRAPPER}} .oxi-addons-flip-box-style-16 .oxi-addons-flip-box-back-section',
             ]
         );
         $this->add_group_control(
             Group_Control_Box_Shadow::get_type(),
             [
                 'name' => 'flip_boxes_flip_border_backend_shadow',
-                'selector' => '{{WRAPPER}} .oxi-addons-flip-box-style-8 .oxi-addons-flip-box-back-section',
+                'selector' => '{{WRAPPER}} .oxi-addons-flip-box-style-16 .oxi-addons-flip-box-back-section',
             ]
         );
         $this->add_responsive_control(
@@ -542,135 +606,68 @@ class Eight extends Widget_Base
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .oxi-addons-flip-box-style-8 .oxi-addons-flip-box-back-section' => 'padding:{{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .oxi-addons-flip-box-style-16 .oxi-addons-flip-box-back-section' => 'padding:{{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
-
         $this->end_controls_section();
+
         $this->start_controls_section(
-            'section_flip_back_icon_style',
+            'section_flip_backend_desc_style',
             [
-                'label' => esc_html__('Back Icon Style', OXI_FLIP_BOX_TEXTDOMAIN),
+                'label' => esc_html__('Backend Info Style', OXI_FLIP_BOX_TEXTDOMAIN),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
+        $this->add_responsive_control(
+            'section_flip_backend_desc_alignment',
+            [
+                'label' => esc_html__('Info Alignment', OXI_FLIP_BOX_TEXTDOMAIN),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    'left' => [
+                        'title' => esc_html__('Left', OXI_FLIP_BOX_TEXTDOMAIN),
+                        'icon' => 'fa fa-align-left',
+                    ],
+                    'center' => [
+                        'title' => esc_html__('Center', OXI_FLIP_BOX_TEXTDOMAIN),
+                        'icon' => 'fa fa-align-center',
+                    ],
+                    'right' => [
+                        'title' => esc_html__('Right', OXI_FLIP_BOX_TEXTDOMAIN),
+                        'icon' => 'fa fa-align-right',
+                    ],
+                ],
+                'default' => 'center',
+                'selectors' => [
+                    '{{WRAPPER}} .oxi-addons-flip-box-style-16 .oxi-addons-flip-box-back-info' => 'text-align: {{VALUE}};',
+                ],
+            ]
+        );
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'section_flip_back_desc_typ',
+                'scheme' => Scheme_Typography::TYPOGRAPHY_3,
+                'selector' => '{{WRAPPER}} .oxi-addons-flip-box-style-16 .oxi-addons-flip-box-back-info',
+            ]
+        );
 
-        $this->add_responsive_control(
-            'sa_flip_boxes_flip_back_icon_width_height',
-            [
-                'label' => esc_html__('Width Height', OXI_FLIP_BOX_TEXTDOMAIN),
-                'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px', '%', 'em'],
-                'range' => [
-                    'px' => [
-                        'min' => 1,
-                        'max' => 300,
-                        'step' => 1,
-                    ],
-                    '%' => [
-                        'min' => 1,
-                        'max' => 50,
-                        'step' => 1,
-                    ],
-                    'em' => [
-                        'min' => 1,
-                        'max' => 10,
-                        'step' => 1,
-                    ]
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .oxi-addons-flip-box-style-8 .oxi-addons-flip-box-back-icon i' => 'width:{{SIZE}}{{UNIT}}; height:{{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
-        $this->add_responsive_control(
-            'sa_flip_boxes_flip_back_icon_size',
-            [
-                'label' => esc_html__('Size', OXI_FLIP_BOX_TEXTDOMAIN),
-                'type' => Controls_Manager::SLIDER,
-                'size_units' => ['px', '%', 'em'],
-                'range' => [
-                    'px' => [
-                        'min' => 1,
-                        'max' => 200,
-                        'step' => 1,
-                    ],
-                    '%' => [
-                        'min' => 1,
-                        'max' => 50,
-                        'step' => 1,
-                    ],
-                    'em' => [
-                        'min' => 1,
-                        'max' => 10,
-                        'step' => 1,
-                    ]
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .oxi-addons-flip-box-style-8 .oxi-addons-flip-box-back-icon i' => 'font-size:{{SIZE}}{{UNIT}};',
-                ],
-            ]
-        );
+
         $this->add_control(
-            'section_flip_back_icon_color',
+            'section_flip_back_desc_color',
             [
                 'label' => esc_html__('Color', OXI_FLIP_BOX_TEXTDOMAIN),
                 'type' => Controls_Manager::COLOR,
-                'default' => '#00717d',
+                'default' => '#fff',
                 'selectors' => [
-                    '{{WRAPPER}} .oxi-addons-flip-box-style-8 .oxi-addons-flip-box-back-icon i' => 'color: {{VALUE}};'
+                    '{{WRAPPER}} .oxi-addons-flip-box-style-16 .oxi-addons-flip-box-back-info' => 'color: {{VALUE}};',
                 ],
             ]
         );
 
-        $this->add_group_control(
-            Group_Control_Background::get_type(),
-            [
-                'name' => 'section_flip_back_icon_background',
-                'label' => __('Background', OXI_FLIP_BOX_TEXTDOMAIN),
-                'types' => ['none', 'classic', 'gradient', 'video'],
-                'selector' => '{{WRAPPER}} .oxi-addons-flip-box-style-8 .oxi-addons-flip-box-back-icon i',
-            ]
-        );
-        $this->add_group_control(
-            Group_Control_Border::get_type(),
-            [
-                'name' => 'flip_boxes_flip_back_icon_border',
-                'selector' => '{{WRAPPER}} .oxi-addons-flip-box-style-8 .oxi-addons-flip-box-back-icon i',
-            ]
-        );
-
         $this->add_responsive_control(
-            'flip_boxes_flip_back_icon_radius',
-            [
-                'label' => esc_html__('Border Radius', OXI_FLIP_BOX_TEXTDOMAIN),
-                'type' => Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%', 'em'],
-                'range' => [
-                    'px' => [
-                        'min' => 1,
-                        'max' => 100,
-                        'step' => 1,
-                    ],
-                    '%' => [
-                        'min' => 1,
-                        'max' => 100,
-                        'step' => 1,
-                    ],
-                    'em' => [
-                        'min' => 1,
-                        'max' => 100,
-                        'step' => 1,
-                    ]
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .oxi-addons-flip-box-style-8 .oxi-addons-flip-box-back-icon i' => 'border-radius:{{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-            ]
-        );
-        $this->add_responsive_control(
-            'flip_boxes_flip_back_icon_padding',
+            'section_flip_back_desc_padding',
             [
                 'label' => esc_html__('Padding', OXI_FLIP_BOX_TEXTDOMAIN),
                 'type' => Controls_Manager::DIMENSIONS,
@@ -678,7 +675,7 @@ class Eight extends Widget_Base
                 'range' => [
                     'px' => [
                         'min' => 1,
-                        'max' => 200,
+                        'max' => 100,
                         'step' => 1,
                     ],
                     '%' => [
@@ -693,7 +690,7 @@ class Eight extends Widget_Base
                     ]
                 ],
                 'selectors' => [
-                    '{{WRAPPER}} .oxi-addons-flip-box-style-8 .oxi-addons-flip-box-back-icon' => 'padding:{{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    '{{WRAPPER}} .oxi-addons-flip-box-style-16 .oxi-addons-flip-box-back-info' => 'padding:{{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
@@ -747,20 +744,25 @@ class Eight extends Widget_Base
     {
 
         wp_enqueue_style('oxilab-flip-boxes', OXI_FLIP_BOX_UPLOAD_URL . '/Elementor/assets/css/flip-boxes.css', false, OXI_FLIP_BOX_PLUGIN_VERSION);
-        wp_enqueue_style('oxilab-flip-box-eight', OXI_FLIP_BOX_UPLOAD_URL . '/Elementor/assets/css/eight.css', false, OXI_FLIP_BOX_PLUGIN_VERSION);
+        wp_enqueue_style('oxilab-flip-box-sixteen', OXI_FLIP_BOX_UPLOAD_URL . '/Elementor/assets/css/sixteen.css', false, OXI_FLIP_BOX_PLUGIN_VERSION);
         $settings = $this->get_settings();
-        $fronticon = $backicon = $bt = $bc = '';
+        $icon = $front_hadding = $backinfo = $bt = $bc = '';
 
         if (isset($settings['oxi_flip_frontend_icon']['value'])) {
-            $fronticon = '<div class="oxi-addons-flip-box-front-icon">
-                    ' . $this->Oxilab_Icon_Render($settings['oxi_flip_frontend_icon']) . '
-                </div>';
+            $icon = '<div class="oxi-addons-flip-box-front-icon">
+                        ' . $this->Oxilab_Icon_Render($settings['oxi_flip_frontend_icon']) . '
+                    </div>';
         }
-
-        if (isset($settings['oxi_flip_backend_icon']['value'])) {
-            $backicon = '<div class="oxi-addons-flip-box-back-icon">
-                    ' . $this->Oxilab_Icon_Render($settings['oxi_flip_backend_icon']) . '
-                </div>';
+        if ($settings['oxi_flip_frontend_title'] != '') {
+            $front_hadding .= '<div class="oxi-addons-flip-box-front-headding">
+                                    ' . $settings['oxi_flip_frontend_title'] . '
+                                </div> ';
+                }
+ 
+        if ($settings['oxi_flip_backend_info'] != '') {
+            $backinfo .= '<div class="oxi-addons-flip-box-back-info">
+                            ' . $settings['oxi_flip_backend_info'] . '
+                        </div>';
         }
 
         $this->add_render_attribute('oxi_flip_link', [
@@ -779,7 +781,8 @@ class Eight extends Widget_Base
             $bc = '</a>';
         }
 
-        echo '<div class="oxi-addons-flip-box-style-8">' . $bt . '
+        echo '<div class="oxi-addons-flip-box-style-16">
+                ' . $bt . '
                 <div class="oxi-addons-flip-boxes-body">
                     <div class="oxi-addons-flip-boxes-body-data">
                         <div class="oxi-addons-flip-box-flip ' . $settings['flip_boxes_flip_direction'] . '">
@@ -787,15 +790,16 @@ class Eight extends Widget_Base
                                 <div class="oxi-addons-flip-box-style">
                                     <div class="oxi-addons-flip-box-front">
                                         <div class="oxi-addons-flip-box-front-section-box">
-                                            <div class="oxi-addons-flip-box-front-section">                                             
-                                                ' . $fronticon . '
+                                            <div class="oxi-addons-flip-box-front-section">
+                                                ' . $icon . ' 
+                                                ' . $front_hadding . '
                                             </div>  
                                         </div>
                                     </div>
                                     <div class="oxi-addons-flip-box-back">
                                         <div class="oxi-addons-flip-box-back-section-box">
                                             <div class="oxi-addons-flip-box-back-section">
-                                                ' . $backicon . '
+                                                ' . $backinfo . '
                                             </div>
                                         </div>
                                     </div>
@@ -803,7 +807,8 @@ class Eight extends Widget_Base
                             </div>
                         </div>
                     </div>
-                </div>' . $bc . '
+                </div>
+                ' . $bc . '
             </div>';
     }
 }

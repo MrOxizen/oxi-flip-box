@@ -171,7 +171,7 @@ class Five extends Widget_Base
                 'range' => [
                     'px' => [
                         'min' => 1,
-                        'max' => 2000,
+                        'max' => 1000,
                         'step' => 1,
                     ],
                     '%' => [
@@ -199,7 +199,7 @@ class Five extends Widget_Base
                 'range' => [
                     'px' => [
                         'min' => 1,
-                        'max' => 2000,
+                        'max' => 1000,
                         'step' => 1,
                     ],
                     '%' => [
@@ -228,7 +228,7 @@ class Five extends Widget_Base
                 'range' => [
                     'px' => [
                         'min' => 1,
-                        'max' => 2000,
+                        'max' => 200,
                         'step' => 1,
                     ],
                     '%' => [
@@ -258,7 +258,7 @@ class Five extends Widget_Base
                 'range' => [
                     'px' => [
                         'min' => 1,
-                        'max' => 2000,
+                        'max' => 200,
                         'step' => 1,
                     ],
                     '%' => [
@@ -356,7 +356,7 @@ class Five extends Widget_Base
                 'range' => [
                     'px' => [
                         'min' => 1,
-                        'max' => 2000,
+                        'max' => 200,
                         'step' => 1,
                     ],
                     '%' => [
