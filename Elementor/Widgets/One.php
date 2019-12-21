@@ -102,7 +102,7 @@ class One extends Widget_Base {
 
         $this->start_controls_section(
                 'section_flip_style', [
-            'label' => esc_html__('Flip Style Button', OXI_FLIP_BOX_TEXTDOMAIN),
+            'label' => esc_html__('Flip Style', OXI_FLIP_BOX_TEXTDOMAIN),
             'tab' => Controls_Manager::TAB_STYLE,
                 ]
         );

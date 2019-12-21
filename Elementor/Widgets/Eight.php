@@ -90,7 +90,7 @@ class Eight extends Widget_Base
         $this->start_controls_section(
             'section_flip_style',
             [
-                'label' => esc_html__('Flip Style Button', OXI_FLIP_BOX_TEXTDOMAIN),
+                'label' => esc_html__('Flip Style', OXI_FLIP_BOX_TEXTDOMAIN),
                 'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
@@ -747,7 +747,7 @@ class Eight extends Widget_Base
     {
 
         wp_enqueue_style('oxilab-flip-boxes', OXI_FLIP_BOX_UPLOAD_URL . '/Elementor/assets/css/flip-boxes.css', false, OXI_FLIP_BOX_PLUGIN_VERSION);
-        wp_enqueue_style('oxilab-flip-box-two', OXI_FLIP_BOX_UPLOAD_URL . '/Elementor/assets/css/eight.css', false, OXI_FLIP_BOX_PLUGIN_VERSION);
+        wp_enqueue_style('oxilab-flip-box-eight', OXI_FLIP_BOX_UPLOAD_URL . '/Elementor/assets/css/eight.css', false, OXI_FLIP_BOX_PLUGIN_VERSION);
         $settings = $this->get_settings();
         $fronticon = $backicon = $bt = $bc = '';
 
